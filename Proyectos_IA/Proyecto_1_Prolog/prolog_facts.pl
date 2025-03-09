@@ -168,7 +168,7 @@ book_category(la_sombra_del_viento, mystery).
 sale(andres, cien_anos_de_soledad).
 sale(luis, cien_anos_de_soledad). 
 sale(felipe, sapiens_de_animales_a_dioses).
-sale(carolina, sapiens_de_animales_a_dioses).
+sale(carolina, el_senor_de_los_anillos).
 sale(tatiana, el_arte_de_la_guerra).
 sale(sofia, el_arte_de_la_guerra).
 sale(pedro, el_codigo_da_vinci).
@@ -214,14 +214,18 @@ sale(martin, el_psicoanalista).
 sale(cesar, neuromante).
 sale(francisco, neuromante).
 sale(omar, el_amor_en_los_tiempos_del_colera).
-sale(hector, el_amor_en_los_tiempos_del_colera).
-
+sale(hector, la_sombra_del_viento).
 
 %# Ratings
 rating(andres, cien_anos_de_soledad, 5).
-rating(luis, don_quijote_de_la_mancha, 1).
+rating(andres, steve_jobs_la_biografia, 4).
+rating(andres, los_cuatro_acuerdos, 4).
+rating(luis, steve_jobs_la_biografia, 4).
+rating(luis, el_senor_de_los_anillos, 4).
+rating(luis, don_quijote_de_la_mancha, 3).
 rating(felipe, sapiens_de_animales_a_dioses, 3).
-rating(carolina, el_senor_de_los_anillos, 5).
+rating(carolina, el_arte_de_la_guerra, 5).
+rating(carolina, cien_anos_de_soledad, 4).
 rating(tatiana, el_arte_de_la_guerra, 4).
 rating(sofia, steve_jobs_la_biografia, 5).
 rating(pedro, el_codigo_da_vinci, 3).
@@ -268,4 +272,3 @@ rating(cesar, neuromante, 5).
 rating(francisco, los_pilares_de_la_tierra, 4).
 rating(omar, el_amor_en_los_tiempos_del_colera, 3).
 rating(hector, la_sombra_del_viento, 2).
-
