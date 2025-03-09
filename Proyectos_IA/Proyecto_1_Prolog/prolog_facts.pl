@@ -165,67 +165,113 @@ book_category(el_amor_en_los_tiempos_del_colera, fiction).
 book_category(la_sombra_del_viento, mystery).
 
 %# Sales
-sale(andres, cien_anos_de_soledad).
-sale(luis, cien_anos_de_soledad). 
-sale(felipe, sapiens_de_animales_a_dioses).
-sale(carolina, el_senor_de_los_anillos).
-sale(tatiana, el_arte_de_la_guerra).
-sale(sofia, el_arte_de_la_guerra).
-sale(pedro, el_codigo_da_vinci).
-sale(juan, el_codigo_da_vinci).
-sale(gabriela, los_cuatro_acuerdos).
-sale(luisa, los_cuatro_acuerdos).
-sale(melissa, rayuela).
-sale(maria, rayuela).
-sale(sergio, harry_potter_y_la_piedra_filosofal).
-sale(santiago, harry_potter_y_la_piedra_filosofal).
-sale(jose, los_crimenes_de_la_calle_morgue).
-sale(javier, los_crimenes_de_la_calle_morgue).
-sale(pedro, 1984).
-sale(rebeca, 1984).
-sale(mariana, la_segunda_guerra_mundial).
+sale(andres, el_arte_de_la_guerra).
+sale(luis, fahrenheit_451).
+sale(felipe, dune).
+sale(carolina, leonardo_da_vinci_la_biografia).
+sale(tatiana, los_hombres_que_no_amaban_a_las_mujeres).
+sale(sofia, cien_anos_de_soledad).
+sale(pedro, historia_antigua).
+sale(juan, neuromante).
+sale(gabriela, el_psicoanalista).
+sale(luisa, el_codigo_da_vinci).
+sale(melissa, sapiens_de_animales_a_dioses).
+sale(maria, el_amor_en_los_tiempos_del_colera).
+sale(sergio, 1984).
+sale(santiago, historia_de_la_humanidad).
+sale(jose, el_tunel).
+sale(javier, rayuela).
+sale(pedro, los_cuatro_acuerdos).
+sale(rebeca, la_casa_de_los_espiritus).
+sale(mariana, historia_de_la_humanidad).
 sale(luna, la_segunda_guerra_mundial).
-sale(eugenia, fahrenheit_451).
-sale(juliana, fahrenheit_451).
-sale(karen, historia_de_la_humanidad).
-sale(natalia, historia_de_la_humanidad).
-sale(david, la_casa_de_los_espiritus).
-sale(fernando, la_casa_de_los_espiritus).
-sale(alexander, leonardo_da_vinci_la_biografia).
-sale(pablo, leonardo_da_vinci_la_biografia).
-sale(carlos, las_cronicas_de_narnia).
-sale(manuel, las_cronicas_de_narnia).
-sale(daniel, historia_antigua).
-sale(esteban, historia_antigua).
-sale(jorge, dune).
-sale(alejandro, dune).
-sale(cristian, vida_de_mahatma_gandhi).
-sale(ricardo, vida_de_mahatma_gandhi).
-sale(eduardo, cumbres_borrascosas).
-sale(benjamin, cumbres_borrascosas).
-sale(hugo, steve_jobs_por_walter_isaacson).
-sale(miguel, steve_jobs_por_walter_isaacson).
-sale(roberto, los_hombres_que_no_amaban_a_las_mujeres).
-sale(ignacio, los_hombres_que_no_amaban_a_las_mujeres).
-sale(raul, juego_de_tronos).
-sale(victor, juego_de_tronos).
-sale(adrian, el_psicoanalista).
-sale(martin, el_psicoanalista).
-sale(cesar, neuromante).
-sale(francisco, neuromante).
-sale(omar, el_amor_en_los_tiempos_del_colera).
-sale(hector, la_sombra_del_viento).
+sale(eugenia, harry_potter_y_la_piedra_filosofal).
+sale(juliana, juego_de_tronos).
+sale(karen, steve_jobs_por_walter_isaacson).
+sale(natalia, vida_de_mahatma_gandhi).
+sale(david, los_crimenes_de_la_calle_morgue).
+sale(fernando, el_psicoanalista).
+sale(alexander, el_diario_de_ana_frank).
+sale(pablo, cronica_de_una_muerte_anunciada).
+sale(carlos, el_nombre_de_la_rosa).
+sale(manuel, leonardo_da_vinci_la_biografia).
+sale(daniel, las_cronicas_de_narnia).
+sale(esteban, la_casa_de_los_espiritus).
+sale(jorge, el_amor_en_los_tiempos_del_colera).
+sale(alejandro, padre_rico_padre_pobre).
+sale(cristian, historia_de_espana).
+sale(ricardo, napoleon_una_vida).
+sale(eduardo, sherlock_holmes_estudio_en_escarlata).
+sale(benjamin, winston_churchill_una_vida).
+sale(hugo, historia_universal).
+sale(miguel, los_pilares_de_la_tierra).
+sale(roberto, el_nombre_de_la_rosa).
+sale(ignacio, cumbres_borrascosas).
+sale(raul, el_psicoanalista).
+sale(victor, rayuela).
+sale(adrian, juego_de_tronos).
+sale(martin, neuromante).
+sale(cesar, los_crimenes_de_la_calle_morgue).
+sale(francisco, historia_antigua).
+sale(omar, sapiens_de_animales_a_dioses).
+sale(hector, los_hombres_que_no_amaban_a_las_mujeres).
+sale(andres, neuromante).
+sale(luis, juego_de_tronos).
+sale(felipe, el_nombre_de_la_rosa).
+sale(carolina, rayuela).
+sale(tatiana, cien_anos_de_soledad).
+sale(sofia, los_crimenes_de_la_calle_morgue).
+sale(pedro, sherlock_holmes_estudio_en_escarlata).
+sale(juan, la_sombra_del_viento).
+sale(gabriela, steve_jobs_por_walter_isaacson).
+sale(luisa, el_tunel).
+sale(melissa, fahrenheit_451).
+sale(maria, el_principito).
+sale(sergio, frida_kahlo_una_biografia).
+sale(santiago, el_hobbit).
+sale(jose, historia_universal).
+sale(javier, leonardo_da_vinci_la_biografia).
+sale(rebeca, el_diario_de_ana_frank).
+sale(mariana, 1984).
+sale(luna, la_segunda_guerra_mundial).
+sale(eugenia, la_sombra_del_viento).
+sale(juliana, breve_historia_del_tiempo).
+sale(karen, leonardo_da_vinci_la_biografia).
+sale(natalia, napoleon_una_vida).
+sale(david, el_principito).
+sale(fernando, padre_rico_padre_pobre).
+sale(alexander, historia_de_la_humanidad).
+sale(pablo, los_pilares_de_la_tierra).
+sale(carlos, el_diario_de_ana_frank).
+sale(manuel, juego_de_tronos).
+sale(daniel, el_amor_en_los_tiempos_del_colera).
+sale(esteban, los_crimenes_de_la_calle_morgue).
+sale(jorge, sapiens_de_animales_a_dioses).
+sale(alejandro, la_sombra_del_viento).
+sale(cristian, el_hombre_en_busca_de_sentido).
+sale(ricardo, la_segunda_guerra_mundial).
+sale(eduardo, el_tunel).
+sale(benjamin, leonardo_da_vinci_la_biografia).
+sale(hugo, frida_kahlo_una_biografia).
+sale(miguel, rayuela).
+sale(roberto, historia_antigua).
+sale(ignacio, cien_anos_de_soledad).
+sale(raul, steve_jobs_por_walter_isaacson).
+sale(victor, el_psicoanalista).
+sale(adrian, sherlock_holmes_estudio_en_escarlata).
+sale(martin, breve_historia_del_tiempo).
+sale(cesar, dune).
+sale(francisco, el_codigo_da_vinci).
+sale(omar, los_cuatro_acuerdos).
+sale(hector, el_hombre_en_busca_de_sentido).
+
+
 
 %# Ratings
 rating(andres, cien_anos_de_soledad, 5).
-rating(andres, steve_jobs_la_biografia, 4).
-rating(andres, los_cuatro_acuerdos, 4).
-rating(luis, steve_jobs_la_biografia, 4).
-rating(luis, el_senor_de_los_anillos, 4).
-rating(luis, don_quijote_de_la_mancha, 3).
+rating(luis, don_quijote_de_la_mancha, 1).
 rating(felipe, sapiens_de_animales_a_dioses, 3).
-rating(carolina, el_arte_de_la_guerra, 5).
-rating(carolina, cien_anos_de_soledad, 4).
+rating(carolina, el_senor_de_los_anillos, 5).
 rating(tatiana, el_arte_de_la_guerra, 4).
 rating(sofia, steve_jobs_la_biografia, 5).
 rating(pedro, el_codigo_da_vinci, 3).
