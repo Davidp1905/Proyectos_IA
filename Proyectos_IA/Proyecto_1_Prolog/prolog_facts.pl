@@ -168,7 +168,7 @@ book_category(la_sombra_del_viento, mystery).
 sale(andres, cien_anos_de_soledad).
 sale(luis, don_quijote_de_la_mancha).
 sale(felipe, sapiens_de_animales_a_dioses).
-sale(carolina, el_senor_de_los_anillos).
+sale(carolina, el_arte_de_la_guerra).
 sale(tatiana, el_arte_de_la_guerra).
 sale(sofia, steve_jobs_la_biografia).
 sale(pedro, el_codigo_da_vinci).
@@ -215,12 +215,48 @@ sale(cesar, neuromante).
 sale(francisco, los_pilares_de_la_tierra).
 sale(omar, el_amor_en_los_tiempos_del_colera).
 sale(hector, la_sombra_del_viento).
+sale(andres, el_codigo_da_vinci).
+sale(andres, sherlock_holmes_estudio_en_escarlata).
+sale(andres, sapiens_de_animales_a_dioses).
+sale(andres, steve_jobs_la_biografia).
+sale(andres, los_cuatro_acuerdos).
+sale(luis, steve_jobs_la_biografia).
+sale(luis, los_cuatro_acuerdos).
+sale(luis, el_senor_de_los_anillos).
+sale(luis, el_arte_de_la_guerra).
+sale(felipe, cien_anos_de_soledad).
+sale(felipe, rayuela).
+sale(felipe, breve_historia_del_tiempo).
+sale(carolina, don_quijote_de_la_mancha).
+sale(carolina, los_cuatro_acuerdos).
+sale(carolina, cien_anos_de_soledad).
+sale(carolina, el_poder_del_ahora).
+sale(tatiana, sapiens_de_animales_a_dioses).
+sale(tatiana, breve_historia_del_tiempo).
+sale(tatiana, sherlock_holmes_estudio_en_escarlata).
+sale(sofia, el_senor_de_los_anillos).
+sale(sofia, el_poder_del_ahora).
+sale(sofia, cien_anos_de_soledad).
+sale(sofia, rayuela).
+sale(pedro, el_arte_de_la_guerra).
+sale(pedro, steve_jobs_la_biografia).
+sale(juan, don_quijote_de_la_mancha).
+sale(juan, el_senor_de_los_anillos).
+sale(juan, sapiens_de_animales_a_dioses).
+sale(juan, sherlock_holmes_estudio_en_escarlata).
+
+
 
 %# Ratings
 rating(andres, cien_anos_de_soledad, 5).
-rating(luis, don_quijote_de_la_mancha, 1).
+rating(andres, steve_jobs_la_biografia, 4).
+rating(andres, los_cuatro_acuerdos, 4).
+rating(luis, steve_jobs_la_biografia, 4).
+rating(luis, el_senor_de_los_anillos, 4).
+rating(luis, don_quijote_de_la_mancha, 3).
 rating(felipe, sapiens_de_animales_a_dioses, 3).
-rating(carolina, el_senor_de_los_anillos, 5).
+rating(carolina, el_arte_de_la_guerra, 5).
+rating(carolina, cien_anos_de_soledad, 4).
 rating(tatiana, el_arte_de_la_guerra, 4).
 rating(sofia, steve_jobs_la_biografia, 5).
 rating(pedro, el_codigo_da_vinci, 3).
@@ -267,4 +303,3 @@ rating(cesar, neuromante, 5).
 rating(francisco, los_pilares_de_la_tierra, 4).
 rating(omar, el_amor_en_los_tiempos_del_colera, 3).
 rating(hector, la_sombra_del_viento, 2).
-
