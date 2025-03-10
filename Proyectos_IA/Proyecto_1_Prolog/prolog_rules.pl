@@ -16,3 +16,22 @@ similar_users(User, SimilarUser) :-
     sale(SimilarUser, Book),
     User \= SimilarUser. % Esto hace que no se recomiende el mismo usuario
     
+%top_10_favoritos([andres, luis, karen], TopLibros).
+top_10_favoritos(Users, Resultados) :-
+    findall(User-TopBooks, (
+        member(User, Users),
+        findall(Book-Rating, (
+            rating(User, Book, Rating),
+            Rating > 3
+        ), BooksWithRatings),
+        sort(2, @>=, BooksWithRatings, SortedBooks),  % Ordena por rating de mayor a menor
+        extract_books(SortedBooks, 10, TopBooks)      % Extrae solo los primeros 10 libros
+    ), Resultados).
+
+% Extrae solo los primeros N libros de la lista
+extract_books(_, 0, []).
+extract_books([], _, []).
+extract_books([Book-_|T], N, [Book|R]) :-
+    N > 0,
+    N1 is N - 1,
+    extract_books(T, N1, R).
