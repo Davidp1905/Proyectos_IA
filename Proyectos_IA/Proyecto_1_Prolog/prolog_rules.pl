@@ -15,7 +15,8 @@ similar_users(User, SimilarUser) :-
     sale(User, Book),
     sale(SimilarUser, Book),
     User \= SimilarUser. % Esto hace que no se recomiende el mismo usuario
-    
+
+% ****************  QUERY #4  ****************
 %top_10_favoritos([andres, luis, karen], TopLibros).
 top_10_favoritos(Users, Resultados) :-
     findall(User-TopBooks, (  % Encuentra la lista de favoritos para cada usuario
