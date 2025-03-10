@@ -1,3 +1,4 @@
+% ****************  QUERY #1  ****************
 % Recomendar un libro con la categoría
 recommend_book(User, RecommendedBook) :-
     sale(User, BoughtBook),
@@ -6,9 +7,11 @@ recommend_book(User, RecommendedBook) :-
     BoughtBook \= RecommendedBook, % Esto hace que no recomiende el mismo libro
     \+ sale(User, RecommendedBook). % Esto hace que no recomiende un libro que ya compró el usuario
  
+% ****************  QUERY #2  **************** 
 % Recomendar una lista de libros
 recommend_list(User, BookList) :-
     findall(RecommendedBook, recommend_book(User, RecommendedBook), BookList). %  Usa la regla anterior para hacer una lista de todos los libros recomendados
+    
     
 % Encontrar usuarios con gustos similares
 similar_users(User, SimilarUser) :-
@@ -47,6 +50,7 @@ extract_books([Book-_|T], N, [Book|R]) :-
     N > 0,
     N1 is N - 1,
     extract_books(T, N1, R).
+
 
 % Encontrar libros con rating mayor a 3
 top_books(BookList) :-
