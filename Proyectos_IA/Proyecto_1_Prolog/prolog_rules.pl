@@ -18,19 +18,30 @@ similar_users(User, SimilarUser) :-
     
 %top_10_favoritos([andres, luis, karen], TopLibros).
 top_10_favoritos(Users, Resultados) :-
-    findall(User-TopBooks, (
-        member(User, Users),
+    findall(User-TopBooks, (  % Encuentra la lista de favoritos para cada usuario
+        member(User, Users),   % Itera sobre cada usuario en la lista "Users"
+        
+        % Obtiene todos los libros calificados por el usuario con rating > 3
         findall(Book-Rating, (
             rating(User, Book, Rating),
-            Rating > 3
+            Rating > 3  % Filtra solo libros con calificación mayor a 3
         ), BooksWithRatings),
-        sort(2, @>=, BooksWithRatings, SortedBooks),  % Ordena por rating de mayor a menor
-        extract_books(SortedBooks, 10, TopBooks)      % Extrae solo los primeros 10 libros
+
+        % Ordena los libros por calificación de mayor a menor
+        sort(2, @>=, BooksWithRatings, SortedBooks),
+
+        % Extrae solo los primeros 10 libros de la lista ordenada
+        extract_books(SortedBooks, 10, TopBooks)
     ), Resultados).
 
-% Extrae solo los primeros N libros de la lista
-extract_books(_, 0, []).
-extract_books([], _, []).
+% Regla auxiliar: Extrae los primeros N libros de la lista.
+% Cuando N llega a 0, se devuelve una lista vacía.
+extract_books(_, 0, []). 
+
+% Si la lista de libros está vacía antes de llegar a N, se devuelve una lista vacía.
+extract_books([], _, []). 
+
+% Caso recursivo: Se toma el primer libro de la lista y se reduce N en 1.
 extract_books([Book-_|T], N, [Book|R]) :-
     N > 0,
     N1 is N - 1,
