@@ -35,3 +35,8 @@ extract_books([Book-_|T], N, [Book|R]) :-
     N > 0,
     N1 is N - 1,
     extract_books(T, N1, R).
+
+% Encontrar libros con rating mayor a 3
+top_books(BookList) :-
+    findall(Book, rating(_, Book, Rating), Books),
+    findall(Book-Rating, (member(Book, Books), Rating > 3), BookList).
