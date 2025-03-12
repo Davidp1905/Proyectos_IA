@@ -12,12 +12,31 @@ recommend_book(User, RecommendedBook) :-
 recommend_list(User, BookList) :-
     findall(RecommendedBook, recommend_book(User, RecommendedBook), BookList). %  Usa la regla anterior para hacer una lista de todos los libros recomendados
     
-    
-% Encontrar usuarios con gustos similares
-similar_users(User, SimilarUser) :-
-    sale(User, Book),
-    sale(SimilarUser, Book),
-    User \= SimilarUser. % Esto hace que no se recomiende el mismo usuario
+% ****************  QUERY #3  ****************
+% Encuentra libros recomendados en base a gustos similares
+recomendar_recurrente(User, Recomendaciones) :-
+    findall(Book, (sale(User, Book), rating(User, Book, Rating), Rating >= 4), LikedBooks), % Encuentra libros que el usuario ha calificado con 4 o más
+    recomendar_recursivo(User, LikedBooks, [], Recomendaciones).  % Inicia la recursión
+
+% Caso base: Cuando no hay más libros por recomendar, se devuelve la lista acumulada.
+recomendar_recursivo(_, [], Recs, Recs).
+
+% Caso recursivo: Busca otro usuario con gustos similares y recomienda libros nuevos
+recomendar_recursivo(User, [LikedBook | Rest], Acumulado, Recomendaciones) :-
+    sale(OtherUser, LikedBook),                % Encuentra otro usuario que haya comprado el mismo libro
+    rating(OtherUser, LikedBook, OtherRating), % Obtiene la calificación del otro usuario
+    OtherUser \= User,                         % Asegura que no sea el mismo usuario
+    OtherRating >= 4,                           % Filtra solo si el otro usuario lo calificó alto
+
+    sale(OtherUser, BookRecomendado),          % Encuentra otro libro que el usuario 2 haya comprado
+    rating(OtherUser, BookRecomendado, Rating2), % Obtiene su calificación
+    Rating2 > 3,                               % Filtra solo libros con calificación mayor a 3
+    \+ sale(User, BookRecomendado),            % Asegura que User no haya comprado ya ese libro
+    \+ member(BookRecomendado, Acumulado),     % Evita libros repetidos en la lista
+
+    append(Acumulado, [BookRecomendado], NuevoAcumulado), % Agrega el libro a la lista de recomendaciones
+    recomendar_recursivo(User, Rest, NuevoAcumulado, Recomendaciones). % Continúa la recursión con los libros restantes
+
 
 % ****************  QUERY #4  ****************
 %top_10_favoritos([andres, luis, karen], TopLibros).
@@ -51,8 +70,15 @@ extract_books([Book-_|T], N, [Book|R]) :-
     N1 is N - 1,
     extract_books(T, N1, R).
 
+% ****************  QUERIES VARIAS  ****************
 
 % Encontrar libros con rating mayor a 3
 top_books(BookList) :-
     findall(Book, rating(_, Book, Rating), Books),
     findall(Book-Rating, (member(Book, Books), Rating > 3), BookList).
+
+    % Encontrar usuarios con gustos similares
+similar_users(User, SimilarUser) :-
+    sale(User, Book),
+    sale(SimilarUser, Book),
+    User \= SimilarUser. % Esto hace que no se recomiende el mismo usuario
