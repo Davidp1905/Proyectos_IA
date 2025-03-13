@@ -50,6 +50,9 @@ user(cesar).
 user(francisco).
 user(omar).
 user(hector).
+user(ana).
+user(rodrigo).
+user(lucas).
 
 %# Books
 book(cien_anos_de_soledad).
@@ -165,7 +168,7 @@ book_category(el_amor_en_los_tiempos_del_colera, fiction).
 book_category(la_sombra_del_viento, mystery).
 
 %# Sales
-sale(andres, el_arte_de_la_guerra).
+sale(andres, 1984).
 sale(luis, fahrenheit_451).
 sale(felipe, dune).
 sale(carolina, leonardo_da_vinci_la_biografia).
@@ -264,11 +267,111 @@ sale(cesar, dune).
 sale(francisco, el_codigo_da_vinci).
 sale(omar, los_cuatro_acuerdos).
 sale(hector, el_hombre_en_busca_de_sentido).
-
-
+sale(luis, el_senor_de_los_anillos).
+sale(carolina, el_senor_de_los_anillos).
+sale(raul, pablo_escobar_mi_padre).
+sale(andres, steve_jobs_la_biografia).
+sale(luis, steve_jobs_la_biografia).
+sale(sofia, steve_jobs_la_biografia).
+sale(andres, cien_anos_de_soledad).
+sale(andres, el_codigo_da_vinci).
+sale(andres, steve_jobs_la_biografia).
+sale(andres, los_cuatro_acuerdos).
+sale(andres, sapiens_de_animales_a_dioses).
+sale(andres, sherlock_holmes_estudio_en_escarlata).
+sale(andres, sapiens_de_animales_a_dioses).
+sale(andres, historia_universal).
+sale(andres, las_cronicas_de_narnia).
+sale(andres, el_hombre_en_busca_de_sentido).
+sale(andres, historia_antigua).
+sale(andres, asesinato_en_el_orient_express).
+sale(andres, dune).
+sale(andres, neuromante).
+sale(martin, cien_anos_de_soledad).
+sale(martin, historia_de_espana).
+sale(martin, 1984).
+sale(martin, cronica_de_una_muerte_anunciada).
+sale(martin, la_segunda_guerra_mundial).
+sale(martin, albert_einstein_su_vida_y_su_universo).
+sale(martin, fahrenheit_451).
+sale(martin, steve_jobs_la_biografia).
+sale(martin, el_nombre_de_la_rosa).
+sale(martin, historia_de_la_humanidad).
+sale(martin, fundacion).
+sale(martin, la_casa_de_los_espiritus).
+sale(martin, el_tunel).
+sale(carolina, el_poder_del_ahora).
+sale(carolina, harry_potter_y_la_piedra_filosofal).
+sale(carolina, padre_rico_padre_pobre).
+sale(carolina, los_crimenes_de_la_calle_morgue).
+sale(carolina, historia_de_espana).
+sale(carolina, 1984).
+sale(carolina, cronica_de_una_muerte_anunciada).
+sale(carolina, la_segunda_guerra_mundial).
+sale(carolina, albert_einstein_su_vida_y_su_universo).
+sale(carolina, fahrenheit_451).
+sale(carolina, el_nombre_de_la_rosa).
+sale(carolina, historia_de_la_humanidad).
+sale(ana, 1984).
+sale(ana, el_hombre_en_busca_de_sentido).
+sale(ana, el_hobbit).
+sale(rodrigo, 1984).
+sale(rodrigo, el_hombre_en_busca_de_sentido).
+sale(rodrigo, historia_de_la_humanidad).
+sale(lucas, historia_de_la_humanidad).
+sale(lucas, el_hombre_en_busca_de_sentido).
+sale(lucas, el_hobbit).
 
 %# Ratings
+rating(ana, 1984, 5).
+rating(ana, el_hombre_en_busca_de_sentido, 4).
+rating(ana, el_hobbit, 5).
+rating(rodrigo, 1984, 4).
+rating(rodrigo, el_hombre_en_busca_de_sentido, 4).
+rating(rodrigo, historia_de_la_humanidad, 5).
+rating(lucas, historia_de_la_humanidad, 4).
+rating(lucas, el_hombre_en_busca_de_sentido, 5).
+rating(lucas, el_hobbit, 4).
+rating(andres, 1984, 5).
 rating(andres, cien_anos_de_soledad, 5).
+rating(andres, steve_jobs_la_biografia, 4).
+rating(andres, los_cuatro_acuerdos, 4).
+rating(andres, neuromante, 1).
+rating(andres, el_codigo_da_vinci, 4).
+rating(andres, sherlock_holmes_estudio_en_escarlata, 4).
+rating(andres, sapiens_de_animales_a_dioses, 5).
+rating(andres, historia_universal, 4).
+rating(andres, las_cronicas_de_narnia, 5).
+rating(andres, el_hombre_en_busca_de_sentido, 4).
+rating(andres, historia_antigua, 5).
+rating(andres, asesinato_en_el_orient_express, 5).
+rating(andres, dune, 3).
+rating(martin, cien_anos_de_soledad, 4).
+rating(martin, historia_de_espana, 3).
+rating(martin, 1984, 5).
+rating(martin, cronica_de_una_muerte_anunciada, 4).
+rating(martin, la_segunda_guerra_mundial, 5).
+rating(martin, albert_einstein_su_vida_y_su_universo, 4).
+rating(martin, fahrenheit_451, 1).
+rating(martin, el_nombre_de_la_rosa, 5).
+rating(martin, historia_de_la_humanidad, 4).
+rating(martin, fundacion, 5).
+rating(martin, la_casa_de_los_espiritus, 2).
+rating(martin, el_tunel, 4).
+rating(carolina, el_poder_del_ahora, 5).
+rating(carolina, harry_potter_y_la_piedra_filosofal, 4).
+rating(carolina, padre_rico_padre_pobre, 3).
+rating(carolina, los_crimenes_de_la_calle_morgue, 4).
+rating(carolina, historia_de_espana, 3).
+rating(carolina, 1984, 5).
+rating(carolina, cronica_de_una_muerte_anunciada, 1).
+rating(carolina, la_segunda_guerra_mundial, 5).
+rating(carolina, albert_einstein_su_vida_y_su_universo, 4).
+rating(carolina, fahrenheit_451, 1).
+rating(carolina, el_nombre_de_la_rosa, 5).
+rating(carolina, historia_de_la_humanidad, 4).
+rating(luis, steve_jobs_la_biografia, 4).
+rating(luis, el_senor_de_los_anillos, 4).
 rating(luis, don_quijote_de_la_mancha, 1).
 rating(felipe, sapiens_de_animales_a_dioses, 3).
 rating(carolina, el_senor_de_los_anillos, 5).

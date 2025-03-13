@@ -13,10 +13,11 @@ recommend_list(User, BookList) :-
     findall(RecommendedBook, recommend_book(User, RecommendedBook), BookList). %  Usa la regla anterior para hacer una lista de todos los libros recomendados
     
 % ****************  QUERY #3  ****************
-% Encuentra libros recomendados en base a gustos similares
+% prueba con rodrigo, ana y lucas
+% Encuentra libros recomendados en base a gustos similares de manera recursiva
 recomendar_recurrente(User, Recomendaciones) :-
-    findall(Book, (sale(User, Book), rating(User, Book, Rating), Rating >= 4), LikedBooks), % Encuentra libros que el usuario ha calificado con 4 o más
-    recomendar_recursivo(User, LikedBooks, [], Recomendaciones).  % Inicia la recursión
+    findall(Book, (sale(User, Book), rating(User, Book, Rating), Rating >= 3), LikedBooks), % Encuentra libros que el usuario ha calificado con 4 o más
+    recomendar_recursivo(User, LikedBooks, [], Recomendaciones).  % Llama a la recursión
 
 % Caso base: Cuando no hay más libros por recomendar, se devuelve la lista acumulada.
 recomendar_recursivo(_, [], Recs, Recs).
@@ -26,7 +27,7 @@ recomendar_recursivo(User, [LikedBook | Rest], Acumulado, Recomendaciones) :-
     sale(OtherUser, LikedBook),                % Encuentra otro usuario que haya comprado el mismo libro
     rating(OtherUser, LikedBook, OtherRating), % Obtiene la calificación del otro usuario
     OtherUser \= User,                         % Asegura que no sea el mismo usuario
-    OtherRating >= 4,                           % Filtra solo si el otro usuario lo calificó alto
+    OtherRating >= 3,                          % Filtra solo si el otro usuario lo calificó alto
 
     sale(OtherUser, BookRecomendado),          % Encuentra otro libro que el usuario 2 haya comprado
     rating(OtherUser, BookRecomendado, Rating2), % Obtiene su calificación
@@ -39,6 +40,8 @@ recomendar_recursivo(User, [LikedBook | Rest], Acumulado, Recomendaciones) :-
 
 
 % ****************  QUERY #4  ****************
+% tienen mas de 10: andres, carolina, martin
+% no tiene ninguno: santiago
 %top_10_favoritos([andres, luis, karen], TopLibros).
 top_10_favoritos(Users, Resultados) :-
     findall(User-TopBooks, (  % Encuentra la lista de favoritos para cada usuario
