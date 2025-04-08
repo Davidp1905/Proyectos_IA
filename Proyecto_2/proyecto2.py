@@ -86,9 +86,9 @@ def clausula_a_frozenset(clausula):
 def reconstruir_clausula(fset):
     return [crear_literal(pred, list(args), negado) for (negado, pred, args) in fset]
 
-def resolucion(kb):
-    conclusion_negada = kb[-1]
-    base = kb[:-1]
+def resolucion(lista_clausulas):
+    conclusion_negada = lista_clausulas[-1]
+    base = lista_clausulas[:-1]
     nuevas = set(clausula_a_frozenset(cl) for cl in base)
     resueltos = set()
     pendientes = [conclusion_negada]
@@ -119,7 +119,7 @@ def resolucion(kb):
 
 # Ejemplo del caso de Marco y César
 # if __name__ == "__main__":
-#     kb = [
+#     lista_clausulas = [
 #         # 1. Hombre(Marco)
 #         [crear_literal("Hombre", ["Marco"])],
 
@@ -149,13 +149,13 @@ def resolucion(kb):
 #     ]
 
 #     print("\nEjecutando resolución para el caso de Marco y César...")
-#     resolucion(kb)
+#     resolucion(lista_clausulas)
 
 
 
 # Ejemplo del caso "¿La curiosidad mató al gato?"
 # if __name__ == "__main__":
-#     kb = [
+#     lista_clausulas = [
 #         # 1. ∀x (∀y Animal(y) → Ama(x,y)) → ∃z Ama(z,x)
 #         # Se transforma en forma clausal: ¬Animal(y) ∨ Ama(x, y)
 #         [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["x", "y"])],
@@ -181,14 +181,14 @@ def resolucion(kb):
 #     ]
 
 #     print("\nEjecutando resolución para el caso de la curiosidad y el gato...")
-#     resolucion(kb)
+#     resolucion(lista_clausulas)
 
 
 # Ejemplo de teorema matemático: "Si un número es par, entonces su doble también es par"
 # Referencia: Stewart, J. (2012). Cálculo de una variable (7ª ed.). Cengage Learning.
 
 if __name__ == "__main__":
-    kb = [
+    lista_clausulas = [
         # 1. ¬Par(2) ∨ Par(4)
         [crear_literal("Par", ["2"], negado=True), crear_literal("Par", ["4"])],
 
@@ -200,4 +200,4 @@ if __name__ == "__main__":
     ]
 
     print("Ejecutando resolución para el teorema: Si un número es par, entonces su doble también es par...")
-    resolucion(kb)
+    resolucion(lista_clausulas)
