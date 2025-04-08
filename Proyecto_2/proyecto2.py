@@ -83,36 +83,39 @@ def literal_a_tupla(lit):
 def clausula_a_frozenset(clausula):
     return frozenset([literal_a_tupla(lit) for lit in clausula])
 
-def resolucion(kb):
-    clausulas = [clausula_a_frozenset(clausula) for clausula in kb]
-    nuevas = set(clausulas)
-    resueltos = set()
+def reconstruir_clausula(fset):
+    return [crear_literal(pred, list(args), negado) for (negado, pred, args) in fset]
 
-    while True:
-        combinaciones = list(combinations(nuevas, 2))
-        nuevos_resultados = set()
-        for c1, c2 in combinaciones:
-            par = frozenset([c1, c2])
+def resolucion(kb):
+    conclusion_negada = kb[-1]
+    base = kb[:-1]
+    nuevas = set(clausula_a_frozenset(cl) for cl in base)
+    resueltos = set()
+    pendientes = [conclusion_negada]
+
+    while pendientes:
+        actual = pendientes.pop()
+        fs_actual = clausula_a_frozenset(actual)
+
+        for otra in list(nuevas):
+            par = frozenset([fs_actual, otra])
             if par in resueltos:
                 continue
             resueltos.add(par)
-            # reconstruir literales desde tuplas para resolver
-            cl1 = [crear_literal(pred, list(args), negado) for (negado, pred, args) in c1]
-            cl2 = [crear_literal(pred, list(args), negado) for (negado, pred, args) in c2]
-            resolvente = resolver(cl1, cl2)
+            otra_clausula = reconstruir_clausula(otra)
+            resolvente = resolver(actual, otra_clausula)
+
             if resolvente is not None:
                 if len(resolvente) == 0:
-                    print("Se encontró cláusula vacía. La conclusión es verdadera.")
+                    print("Se encontró cláusula vacía (resolución dirigida). La conclusión es verdadera.")
                     return True
                 resolvente_set = clausula_a_frozenset(resolvente)
                 if resolvente_set not in nuevas:
-                    nuevos_resultados.add(resolvente_set)
-        if not nuevos_resultados:
-            print("No se pudo demostrar la conclusión. No se encontró contradicción.")
-            return False
-        nuevas.update(nuevos_resultados)
+                    nuevas.add(resolvente_set)
+                    pendientes.append(resolvente)
 
-
+    print("No se pudo demostrar la conclusión (resolución dirigida). No se encontró contradicción.")
+    return False
 
 # Ejemplo del caso de Marco y César
 # if __name__ == "__main__":
@@ -151,49 +154,50 @@ def resolucion(kb):
 
 
 # Ejemplo del caso "¿La curiosidad mató al gato?"
-if __name__ == "__main__":
-    kb = [
-        # 1. ∀x (∀y Animal(y) → Ama(x,y)) → ∃z Ama(z,x)
-        # Se transforma en forma clausal: ¬Animal(y) ∨ Ama(x, y)
-        [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["x", "y"])],
+# if __name__ == "__main__":
+#     kb = [
+#         # 1. ∀x (∀y Animal(y) → Ama(x,y)) → ∃z Ama(z,x)
+#         # Se transforma en forma clausal: ¬Animal(y) ∨ Ama(x, y)
+#         [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["x", "y"])],
 
-        # 2. ∀x ∀y (Mata(x,y) ∧ Animal(y)) → ¬∃z Ama(z,x)
-        # Se transforma en: ¬Mata(x,y) ∨ ¬Animal(y) ∨ ¬Ama(z,x)
-        [crear_literal("Mata", ["x", "y"], negado=True), crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["z", "x"], negado=True)],
+#         # 2. ∀x ∀y (Mata(x,y) ∧ Animal(y)) → ¬∃z Ama(z,x)
+#         # Se transforma en: ¬Mata(x,y) ∨ ¬Animal(y) ∨ ¬Ama(z,x)
+#         [crear_literal("Mata", ["x", "y"], negado=True), crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["z", "x"], negado=True)],
 
-        # 3. ∀y Animal(y) → Ama(Jack, y) → ¬Animal(y) ∨ Ama(Jack, y)
-        [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["Jack", "y"])],
+#         # 3. ∀y Animal(y) → Ama(Jack, y) → ¬Animal(y) ∨ Ama(Jack, y)
+#         [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["Jack", "y"])],
 
-        # 4. Mata(Jack, Tuna) ∨ Mata(Curiosidad, Tuna)
-        [crear_literal("Mata", ["Jack", "Tuna"]), crear_literal("Mata", ["Curiosidad", "Tuna"])],
+#         # 4. Mata(Jack, Tuna) ∨ Mata(Curiosidad, Tuna)
+#         [crear_literal("Mata", ["Jack", "Tuna"]), crear_literal("Mata", ["Curiosidad", "Tuna"])],
 
-        # 5. Gato(Tuna)
-        [crear_literal("Gato", ["Tuna"])],
+#         # 5. Gato(Tuna)
+#         [crear_literal("Gato", ["Tuna"])],
 
-        # 6. ∀x Gato(x) → Animal(x) → ¬Gato(x) ∨ Animal(x)
-        [crear_literal("Gato", ["x"], negado=True), crear_literal("Animal", ["x"])],
+#         # 6. ∀x Gato(x) → Animal(x) → ¬Gato(x) ∨ Animal(x)
+#         [crear_literal("Gato", ["x"], negado=True), crear_literal("Animal", ["x"])],
 
-        # 7. Negación de la conclusión: ¬Mata(Curiosidad, Tuna)
-        [crear_literal("Mata", ["Curiosidad", "Tuna"], negado=True)]
-    ]
+#         # 7. Negación de la conclusión: ¬Mata(Curiosidad, Tuna)
+#         [crear_literal("Mata", ["Curiosidad", "Tuna"], negado=True)]
+#     ]
 
-    print("\nEjecutando resolución para el caso de la curiosidad y el gato...")
-    resolucion(kb)
+#     print("\nEjecutando resolución para el caso de la curiosidad y el gato...")
+#     resolucion(kb)
 
 
 # Ejemplo de teorema matemático: "Si un número es par, entonces su doble también es par"
+# Referencia: Stewart, J. (2012). Cálculo de una variable (7ª ed.). Cengage Learning.
 
-# if __name__ == "__main__":
-#     kb = [
-#         # 1. ¬Par(2) ∨ Par(4)
-#         [crear_literal("Par", ["2"], negado=True), crear_literal("Par", ["4"])],
+if __name__ == "__main__":
+    kb = [
+        # 1. ¬Par(2) ∨ Par(4)
+        [crear_literal("Par", ["2"], negado=True), crear_literal("Par", ["4"])],
 
-#         # 2. Par(2)
-#         [crear_literal("Par", ["2"])],
+        # 2. Par(2)
+        [crear_literal("Par", ["2"])],
 
-#         # 3. Negación de la conclusión: ¬Par(4)
-#         [crear_literal("Par", ["4"], negado=True)]
-#     ]
+        # 3. Negación de la conclusión: ¬Par(4)
+        [crear_literal("Par", ["4"], negado=True)]
+    ]
 
-#     print("Ejecutando resolución para el teorema: Si un número es par, entonces su doble también es par...")
-#     resolucion(kb)
+    print("Ejecutando resolución para el teorema: Si un número es par, entonces su doble también es par...")
+    resolucion(kb)
