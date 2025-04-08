@@ -1,4 +1,4 @@
-# Paso 1: Representación de literales y cláusulas
+# Representación de literales y cláusulas
 
 def crear_literal(predicado, argumentos, negado=False):
     return {
@@ -7,7 +7,7 @@ def crear_literal(predicado, argumentos, negado=False):
         "argumentos": argumentos
     }
 
-# Paso 2: Verificación de si dos literales son complementarios
+# Verificación de si dos literales son complementarios
 
 def es_complementario(l1, l2):
     return (
@@ -16,7 +16,7 @@ def es_complementario(l1, l2):
         len(l1['argumentos']) == len(l2['argumentos'])
     )
 
-# Paso 3: Unificación simple
+# Unificación simple
 
 def unificar(arg1, arg2, sustituciones):
     if sustituciones is None:
@@ -50,7 +50,7 @@ def unificar_variable(var, val, sustituciones):
 def es_variable(arg):
     return arg[0].islower()
 
-# Paso 4: Aplicar sustituciones a una cláusula
+# Aplicar sustituciones a una cláusula
 
 def aplicar_sustitucion(clausula, sustituciones):
     nueva = []
@@ -60,7 +60,7 @@ def aplicar_sustitucion(clausula, sustituciones):
         nueva.append(nuevo_lit)
     return nueva
 
-# Paso 5: Resolver dos cláusulas
+# Resolver dos cláusulas
 
 def resolver(c1, c2):
     for l1 in c1:
@@ -74,7 +74,7 @@ def resolver(c1, c2):
                     return resolvente
     return None
 
-# Paso 6: Motor principal de resolución
+# Motor principal de resolución
 from itertools import combinations
 
 def literal_a_tupla(lit):
@@ -112,19 +112,7 @@ def resolucion(kb):
             return False
         nuevas.update(nuevos_resultados)
 
-# # Paso 7: Ejemplo de prueba sencillo
-# if __name__ == "__main__":
-#     # A
-#     c1 = [crear_literal("A", [])]
-#     # ¬A ∨ B
-#     c2 = [crear_literal("A", [], negado=True), crear_literal("B", [])]
-#     # ¬B (negación de la conclusión)
-#     c3 = [crear_literal("B", [], negado=True)]
 
-#     kb = [c1, c2, c3]
-
-#     print("Ejecutando resolución para KB simple...")
-#     resolucion(kb)
 
 # Ejemplo del caso de Marco y César
 # if __name__ == "__main__":
@@ -194,12 +182,6 @@ if __name__ == "__main__":
 
 
 # Ejemplo de teorema matemático: "Si un número es par, entonces su doble también es par"
-# Vamos a demostrar que: DobleDe(x) es par si x es par.
-# Premisas:
-#   Par(x) → Par(DobleDe(x))
-#   Par(2)
-# Conclusión a demostrar: Par(DobleDe(2))
-# Negación: ¬Par(DobleDe(2))
 
 # if __name__ == "__main__":
 #     kb = [
