@@ -158,58 +158,58 @@ def resolucion(lista_clausulas):
 
 
 # Ejemplo del caso "¿La curiosidad mató al gato?"
-# if __name__ == "__main__":
-#     lista_clausulas = [
-#         # 1. ∀x (∀y Animal(y) → Ama(x,y)) → ∃z Ama(z,x)
-#         # Se transforma en forma clausal: ¬Animal(y) ∨ Ama(x, y)
-#         [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["x", "y"])],
+if __name__ == "__main__":
+    lista_clausulas = [
+        # 1. ∀x (∀y Animal(y) → Ama(x,y)) → ∃z Ama(z,x)
+        # Se transforma en forma clausal: ¬Animal(y) ∨ Ama(x, y)
+        [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["x", "y"])],
 
-#         # 2. ∀x ∀y (Mata(x,y) ∧ Animal(y)) → ¬∃z Ama(z,x)
-#         # Se transforma en: ¬Mata(x,y) ∨ ¬Animal(y) ∨ ¬Ama(z,x)
-#         [crear_literal("Mata", ["x", "y"], negado=True), crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["z", "x"], negado=True)],
+        # 2. ∀x ∀y (Mata(x,y) ∧ Animal(y)) → ¬∃z Ama(z,x)
+        # Se transforma en: ¬Mata(x,y) ∨ ¬Animal(y) ∨ ¬Ama(z,x)
+        [crear_literal("Mata", ["x", "y"], negado=True), crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["z", "x"], negado=True)],
 
-#         # 3. ∀y Animal(y) → Ama(Jack, y) → ¬Animal(y) ∨ Ama(Jack, y)
-#         [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["Jack", "y"])],
+        # 3. ∀y Animal(y) → Ama(Jack, y) → ¬Animal(y) ∨ Ama(Jack, y)
+        [crear_literal("Animal", ["y"], negado=True), crear_literal("Ama", ["Jack", "y"])],
 
-#         # 4. Mata(Jack, Tuna) ∨ Mata(Curiosidad, Tuna)
-#         [crear_literal("Mata", ["Jack", "Tuna"]), crear_literal("Mata", ["Curiosidad", "Tuna"])],
+        # 4. Mata(Jack, Tuna) ∨ Mata(Curiosidad, Tuna)
+        [crear_literal("Mata", ["Jack", "Tuna"]), crear_literal("Mata", ["Curiosidad", "Tuna"])],
 
-#         # 5. Gato(Tuna)
-#         [crear_literal("Gato", ["Tuna"])],
+        # 5. Gato(Tuna)
+        [crear_literal("Gato", ["Tuna"])],
 
-#         # 6. ∀x Gato(x) → Animal(x) → ¬Gato(x) ∨ Animal(x)
-#         [crear_literal("Gato", ["x"], negado=True), crear_literal("Animal", ["x"])],
+        # 6. ∀x Gato(x) → Animal(x) → ¬Gato(x) ∨ Animal(x)
+        [crear_literal("Gato", ["x"], negado=True), crear_literal("Animal", ["x"])],
 
-#         # 7. Negación de la conclusión: ¬Mata(Curiosidad, Tuna)
-#         [crear_literal("Mata", ["Curiosidad", "Tuna"], negado=True)]
-#     ]
+        # 7. Negación de la conclusión: ¬Mata(Curiosidad, Tuna)
+        [crear_literal("Mata", ["Curiosidad", "Tuna"], negado=True)]
+    ]
 
-#     print("\nEjecutando resolución para el caso de la curiosidad y el gato...")
-#     res = resolucion(lista_clausulas)
-#     if res:
-#         print("-> La curiosidad mató al gato.")
-#     else:
-#         print("-> La curiosidad no mató al gato.")
+    print("\nEjecutando resolución para el caso de la curiosidad y el gato...")
+    res = resolucion(lista_clausulas)
+    if res:
+        print("-> La curiosidad mató al gato.")
+    else:
+        print("-> La curiosidad no mató al gato.")
 
 
 # Ejemplo de teorema matemático: "Si un número es par, entonces su doble también es par"
 # Referencia: Stewart, J. (2012). Cálculo de una variable (7ª ed.). Cengage Learning.
 
-if __name__ == "__main__":
-    lista_clausulas = [
-        # 1. ¬Par(2) ∨ Par(4)
-        [crear_literal("Par", ["2"], negado=True), crear_literal("Par", ["4"])],
+# if __name__ == "__main__":
+#     lista_clausulas = [
+#         # 1. ¬Par(2) ∨ Par(4)
+#         [crear_literal("Par", ["2"], negado=True), crear_literal("Par", ["4"])],
 
-        # 2. Par(2)
-        [crear_literal("Par", ["2"])],
+#         # 2. Par(2)
+#         [crear_literal("Par", ["2"])],
 
-        # 3. Negación de la conclusión: ¬Par(4)
-        [crear_literal("Par", ["4"], negado=True)]
-    ]
+#         # 3. Negación de la conclusión: ¬Par(4)
+#         [crear_literal("Par", ["4"], negado=True)]
+#     ]
 
-    print("Ejecutando resolución para el teorema: Si un número es par, entonces su doble también es par...")
-    res = resolucion(lista_clausulas)
-    if res:
-        print("-> Si un número es par, entonces su doble tambien es par.")
-    else:
-        print("-> Si un número es par, entonces su doble tambien es par.")
+#     print("Ejecutando resolución para el teorema: Si un número es par, entonces su doble también es par...")
+#     res = resolucion(lista_clausulas)
+#     if res:
+#         print("-> Si un número es par, entonces su doble tambien es par.")
+#     else:
+#         print("-> Si un número es par, entonces su doble tambien es par.")
