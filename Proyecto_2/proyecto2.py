@@ -148,8 +148,12 @@ def resolucion(lista_clausulas):
 #         [crear_literal("Odia", ["Marco", "Cesar"], negado=True)]
 #     ]
 
-#     print("\nEjecutando resolución para el caso de Marco y César...")
-#     resolucion(lista_clausulas)
+#     print("\nEjecutando resolución para el caso de Marco y César")
+#     res = resolucion(lista_clausulas)
+#     if res:
+#         print("-> Marco odia a César.")
+#     else:
+#         print("-> Marco no odia a César.")
 
 
 
@@ -181,7 +185,11 @@ def resolucion(lista_clausulas):
 #     ]
 
 #     print("\nEjecutando resolución para el caso de la curiosidad y el gato...")
-#     resolucion(lista_clausulas)
+#     res = resolucion(lista_clausulas)
+#     if res:
+#         print("-> La curiosidad mató al gato.")
+#     else:
+#         print("-> La curiosidad no mató al gato.")
 
 
 # Ejemplo de teorema matemático: "Si un número es par, entonces su doble también es par"
@@ -200,4 +208,8 @@ if __name__ == "__main__":
     ]
 
     print("Ejecutando resolución para el teorema: Si un número es par, entonces su doble también es par...")
-    resolucion(lista_clausulas)
+    res = resolucion(lista_clausulas)
+    if res:
+        print("-> Si un número es par, entonces su doble tambien es par.")
+    else:
+        print("-> Si un número es par, entonces su doble tambien es par.")
