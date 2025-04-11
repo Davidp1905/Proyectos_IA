@@ -52,7 +52,7 @@ Puedes alternar entre ejemplos fácilmente repitiendo este proceso.
 ## 📚 Referencia del teorema usado
 
 > “Si un número es par, entonces su doble también es par.”  
-> Stewart, J. (2012). *Cálculo de una variable* (7ª ed.). Cengage Learning.
+> Stewart, J. (2012). Cálculo de una variable (7ª ed.). Cengage Learning.
 
 
 
