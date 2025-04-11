@@ -23,4 +23,36 @@ Este proyecto implementa un motor de inferencia lógico basado en el algoritmo d
 ## ▶ Ejecución
 
 ```bash
+python proyecto2.py
+
+
+### 🧪 Cómo probar otros ejemplos
+
+Este repositorio incluye varios ejemplos clásicos ya preparados, como:
+
+- Marco odia a César
+- ¿La curiosidad mató al gato?
+- Teorema matemático: “Si un número es par, entonces su doble también es par”
+
+Para ejecutar un ejemplo diferente:
+
+1. Abre el archivo `.py` principal.
+2. Busca la sección `if __name__ == "__main__":`.
+3. Descomenta el bloque del ejemplo que deseas ejecutar.
+4. Comenta los otros bloques de ejemplo que no usarás.
+5. Guarda y ejecuta el archivo:
+
+```bash
 python motor_resolucion.py
+```
+
+Cada ejemplo imprimirá su resultado directamente en consola.  
+Puedes alternar entre ejemplos fácilmente repitiendo este proceso.
+
+## 📚 Referencia del teorema usado
+
+> “Si un número es par, entonces su doble también es par.”  
+> Stewart, J. (2012). *Cálculo de una variable* (7ª ed.). Cengage Learning.
+
+
+
