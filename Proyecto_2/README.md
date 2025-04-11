@@ -42,9 +42,9 @@ Para ejecutar un ejemplo diferente:
 4. Comenta los otros bloques de ejemplo que no usarás.
 5. Guarda y ejecuta el archivo:
 
-```bash
+
 python motor_resolucion.py
-```
+
 
 Cada ejemplo imprimirá su resultado directamente en consola.  
 Puedes alternar entre ejemplos fácilmente repitiendo este proceso.
