@@ -1,0 +1,7 @@
+origen,destino
+clima,trafico
+clima,visibilidad
+conductor,accidente
+vehiculo,accidente
+trafico,visibilidad
+visibilidad,accidente

@@ -1,0 +1,10 @@
+clima,trafico,prob
+soleado,bajo,0.6
+soleado,medio,0.3
+soleado,alto,0.1
+lluvioso,bajo,0.2
+lluvioso,medio,0.5
+lluvioso,alto,0.3
+niebla,bajo,0.1
+niebla,medio,0.3
+niebla,alto,0.6

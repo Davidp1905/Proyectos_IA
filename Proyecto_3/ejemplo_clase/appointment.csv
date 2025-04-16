@@ -1,0 +1,5 @@
+train,appointment,prob
+on time,attend,0.9
+on time,miss,0.1
+delayed,attend,0.6
+delayed,miss,0.4

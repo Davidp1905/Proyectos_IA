@@ -1,0 +1,5 @@
+origen,destino
+rain,maintenance
+rain,train
+maintenance,train
+train,appointment
