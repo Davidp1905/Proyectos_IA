@@ -126,6 +126,16 @@ class RedBayesiana:
         valor = asignacion[nodo]
         padres = list(self.grafo.predecessors(nodo))
 
+        # Si es un nodo raíz (no tiene padres), solo buscamos el valor
+        if not padres:
+            filtro = (df[nodo] == valor)
+            fila = df[filtro]
+            if fila.empty:
+                print(f"\tNo se encontró probabilidad para {nodo}={valor}")
+                return 1e-9
+            return float(fila["probabilidad"].values[0])
+
+        # Para nodos con padres, construimos la query completa
         query = {nodo: valor}
         for padre in padres:
             query[padre] = asignacion[padre]
@@ -138,8 +148,8 @@ class RedBayesiana:
         fila = df[filtro]
         if fila.empty:
             print(f"\tNo se encontró probabilidad para: {query}")
-            return 1e-9  # valor muy pequeño para evitar cero
-        return float(fila["prob"].values[0])
+            return 1e-9
+        return float(fila["probabilidad"].values[0])
 
     # Normaliza una distribución de probabilidad para que la suma de sus valores sea 1.
     #   Parámetros:
@@ -211,18 +221,19 @@ if __name__ == "__main__":
     # Mostrar la estructura de la red bayesiana
     ej_clase.mostrar_grafo()
 
+    # Calcular P(appointment | train=delayed, dia="lunes a miercoles")
     resultado = ej_clase.inferir_mostrando_traza("appointment", {
-        "rain": "light",
-        "maintenance": "no"
+        "train": "delayed",
+        "dia": "lunes a miercoles"
     })
     
     resultado = ej_clase.inferir("appointment", {
-        "rain": "light",
-        "maintenance": "no"
+        "train": "delayed",
+        "dia": "lunes a miercoles"
     })
     print("\nResultado de la inferencia:")
     for val, prob in resultado.items():
-        print(f"P(accidente = {val}) = {prob:.4f}")
+        print(f"P(appointment = {val}) = {prob:.4f}")
 
 """
     # Ejemplo propio accidentes
